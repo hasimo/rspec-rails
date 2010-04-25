@@ -4,24 +4,6 @@ require 'action_dispatch'
 require 'webrat'
 require 'test/unit/assertions'
 
-# BEGIN PATCH
-#
-# This has been merged to rails HEAD after the 3.0.0.beta.3 release (see
-# https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/4433).
-# Once 3.0.0.rc.1 comes out, we can remove it.
-
-
-require 'action_controller/test_case'
-# END PATCH
-
-# Preliminary documentation (more to come ....):
-#
-#   allow_forgery_protection is set to false
-#   - you can set it to true in a before(:each) block
-#     if you have a specific example that needs it, but
-#     be sure to restore it to false (or supply tokens
-#     to all of your example requests)
-
 module Rspec::Rails::ActiveSupportConcernAdapter
   def setup(*methods)
     methods.each {|method| before { send method } }
