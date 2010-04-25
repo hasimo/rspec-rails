@@ -22,7 +22,7 @@ module ControllerExampleGroupBehaviour
 
   def self.included(mod)
     mod.extend   Rspec::Rails::ActiveSupportConcernAdapter
-    mod.__send__ :include, ActionController::TestCaseBehavior
+    mod.__send__ :include, ActionController::TestCase::Behavior
 
     def mod.controller_class
       describes
