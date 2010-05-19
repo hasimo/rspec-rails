@@ -8,6 +8,8 @@ module FixtureExampleGroupBehaviour
       include RSpec::Rails::TestUnitAssertionAdapter
       include ActiveRecord::TestFixtures 
       self.fixture_path = RSpec.configuration.fixture_path 
+      self.use_transactional_fixtures = RSpec.configuration.use_transactional_fixtures
+      self.use_instantiated_fixtures  = RSpec.configuration.use_instantiated_fixtures
       fixtures RSpec.configuration.global_fixtures unless RSpec.configuration.global_fixtures.nil?
     end 
   end

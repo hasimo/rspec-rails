@@ -12,6 +12,8 @@ require 'rspec/rails/configuration'
 
 RSpec.configure do |c|
   c.add_option :use_transactional_examples, :type => :boolean, :default => true
+  c.add_option :use_transactional_fixtures, :type => :boolean, :default => true 
+  c.add_option :use_instantiated_fixtures,  :type => :boolean, :default => false
 
   (class << c ; self ; end ).class_eval do 
     include RSpec::Rails::Configuration
