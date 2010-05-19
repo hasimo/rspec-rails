@@ -4,11 +4,17 @@ require 'rspec/rails/extensions'
 require 'rspec/rails/null_resolver'
 require 'rspec/rails/view_rendering'
 require 'rspec/rails/adapters'
-require 'rspec/rails/transactional_database_support'
+require 'rspec/core'
 require 'rspec/rails/matchers'
 require 'rspec/rails/example'
 require 'rspec/rails/mocks'
+require 'rspec/rails/configuration'
 
 RSpec.configure do |c|
   c.add_option :use_transactional_examples, :type => :boolean, :default => true
+
+  (class << c ; self ; end ).class_eval do 
+    include RSpec::Rails::Configuration
+  end
+  
 end
