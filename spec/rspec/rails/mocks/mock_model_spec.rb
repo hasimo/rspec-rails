@@ -122,7 +122,7 @@ describe "mock_model" do
     include ActiveModel::Lint::Tests
 
     ActiveModel::Lint::Tests.public_instance_methods.grep(/^test/).each do |m|
-      example m.gsub('_',' ') do
+      example m.to_s.gsub('_',' ') do
         send m
       end
     end
