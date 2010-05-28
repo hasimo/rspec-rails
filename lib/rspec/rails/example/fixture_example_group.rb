@@ -4,7 +4,7 @@ module FixtureExampleGroupBehaviour
   extend ActiveSupport::Concern
   included do
     if RSpec.configuration.use_transactional_examples
-      extend  RSpec::Rails::SetupAndTeardownAdapter
+      include  RSpec::Rails::SetupAndTeardownAdapter
       include RSpec::Rails::TestUnitAssertionAdapter
       include ActiveRecord::TestFixtures 
       self.fixture_path = RSpec.configuration.fixture_path 
